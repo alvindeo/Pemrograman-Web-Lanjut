@@ -29,6 +29,7 @@ if (session()->getFlashData('success')) {
         if (!empty($items)) :
             foreach ($items as $index => $item) :
         ?>
+
         <tr>
             <td><?php echo $item['name'] ?></td>
             <td><img src="<?php echo base_url() . "img/" . $item['options']['foto'] ?>" width="100px"></td>
@@ -46,6 +47,7 @@ if (session()->getFlashData('success')) {
         endif;
         ?>
     </tbody>
+
 </table>
 <!-- End Table with stripped rows -->
 <div class="alert alert-info">
@@ -54,5 +56,10 @@ if (session()->getFlashData('success')) {
 
 <button type="submit" class="btn btn-primary">Perbarui Keranjang</button>
 <a class="btn btn-warning" href="<?php echo base_url() ?>keranjang/clear">Kosongkan Keranjang</a>
+
+<?php if (!empty($items)) : ?>
+<a class="btn btn-success" href="<?php echo base_url() ?>checkout">Selesai Belanja</a>
+<?php endif; ?>
+
 <?php echo form_close() ?>
 <?= $this->endSection() ?>
