@@ -1,5 +1,6 @@
 <?php
 
+use CodeIgniter\Debug\Toolbar\Collectors\Routes;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -35,3 +36,7 @@ $routes->get('get-location', 'TransaksiController::getLocation', ['filter' => 'a
 $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
 
 $routes->post('buy', 'TransaksiController::buy', ['filter' => 'auth']);
+
+$routes->get('profile', 'Home::profile', ['filter' => 'auth']);
+
+$routes->resource('api', ['controller' => 'apiController']);
